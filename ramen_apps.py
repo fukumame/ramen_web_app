@@ -85,6 +85,8 @@ def analyze_image():
         top_indices = pred.argsort()[::-1]
         results = [[classes_jp[i], round(pred[i]*100,2)] for i in top_indices]
         return render_template('index.html', results= results)
+    else:
+        return render_template('index.html', message='画像ファイルを選択してください。')
 
 
 if __name__ == '__main__':
