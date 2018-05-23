@@ -83,7 +83,7 @@ def analyze_image():
 
         pred = model.predict(image)[0]
         top_indices = pred.argsort()[::-1]
-        results = [[classes_jp[i], pred[i]] for i in top_indices]
+        results = [[classes_jp[i], round(pred[i]*100,2)] for i in top_indices]
         return render_template('index.html', results= results)
 
 
